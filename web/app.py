@@ -9,7 +9,6 @@ from datetime import datetime, timezone
 import helpers
 import plotly.express as px       
 import pandas as pd
-from resonate.metrics import residency_index
 
 # ---------- read & cache data ----------
 @st.cache_data
