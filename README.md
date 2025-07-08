@@ -91,12 +91,6 @@ lets you swap helper functions for OTN’s official **`resonATe`** toolkit.
 
 ---
 
-## Screenshot
-
-![Dashboard screenshot](docs/screenshot.png)
-*(Static preview for e-mail clients that block live links.)*
-
----
 
 ### Potential next steps
 
