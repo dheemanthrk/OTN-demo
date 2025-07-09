@@ -72,6 +72,7 @@ with st.sidebar:
 
     st.markdown("##### Having trouble?")
     st.info("If the map or charts look empty, hit **⟳ Reload**. and pick another tag ID. The data size is small so it caches quickly.")
+    st.caption("🔍 If the page appears oversized, hit **Ctrl + -** (Cmd + - on Mac) to 80%.")
 
     st.markdown("#### Guide")
     st.markdown(
