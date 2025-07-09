@@ -71,7 +71,7 @@ with st.sidebar:
     show_story = st.checkbox("📢 Story mode (fun outreach blurb)")
 
     st.markdown("##### Having trouble?")
-    st.info("If the map or charts look empty, hit **⟳ Reload**. and pick another tag ID. The data size is small so it caches quickly.")
+    st.caption("If the map or charts glitch, hit **⟳ Reload**. and pick another tag ID. The data size is small so it caches quickly.")
     st.caption("🔍 If the page appears oversized, hit **Ctrl + -** (Cmd + - on Mac) to 80%.")
 
     st.markdown("#### Guide")
