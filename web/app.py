@@ -11,10 +11,11 @@ import plotly.express as px
 import helpers
 import base64, pathlib
 
-img_path = pathlib.Path(__file__).parent / "static" / "ocean_bg.avif"
-with open(img_path, "rb") as f:
-    bg_bytes = f.read()
-bg_base64 = base64.b64encode(bg_bytes).decode()
+# --- title with logo -------------------------------------------------
+import base64, pathlib
+logo_path = pathlib.Path(__file__).parent / "static" / "Ocean_Tracking_Network.png"
+logo_b64  = base64.b64encode(logo_path.read_bytes()).decode()
+
 
 # ──  UI THEME & PAGE SETUP  ─────────────────────────────────────────────
 st.set_page_config(
@@ -45,7 +46,17 @@ st.markdown(
 )
 
 
-st.title("🐟 OTN Programmer Demo — Movement & Infrastructure Snapshot")
+st.markdown(
+    f"""
+    <div style="display:flex; align-items:center; gap:0.6rem;
+                font-size:1.8rem; font-weight:600;">
+        <img src="data:image/png;base64,{logo_b64}"
+             style="height:48px;">  <!-- adjust if logo is taller/shorter -->
+        OTN Programmer Demo — Movement & Infrastructure Snapshot
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
 # ──  DATA LOAD (cached)  ────────────────────────────────────────────────
