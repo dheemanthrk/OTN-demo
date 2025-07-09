@@ -35,6 +35,15 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+st.markdown(
+    """
+    <style>
+      html { zoom: 1 !important; }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 
 st.title("🐟 OTN Programmer Demo — Movement & Infrastructure Snapshot")
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
