@@ -48,13 +48,12 @@ st.markdown(
 
 st.markdown(
     f"""
-    <div style="display:flex; align-items:center; gap:0.6rem;
-                font-size:1.8rem; font-weight:600;">
-        <img src="data:image/png;base64,{logo_b64}"
-             style="height:48px;">  <!-- adjust if logo is taller/shorter -->
-        OTN Programmer Demo — Movement & Infrastructure Snapshot
-    </div>
-    """,
+<div style="display:flex; align-items:center; gap:0.6rem;
+            font-size:1.8rem; font-weight:600; line-height:1.2;">
+  <img src="data:image/png;base64,{logo_b64}" style="height:48px;">
+  OTN&nbsp;Programmer&nbsp;Demo&nbsp;—&nbsp;Movement&nbsp;&amp;&nbsp;Infrastructure&nbsp;Snapshot
+</div>
+""",
     unsafe_allow_html=True
 )
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
