@@ -183,19 +183,56 @@ if len(tags_selected) == 1:
                                f"{tag}.csv", "text/csv")
 
     # ---------- map ----------
+    # st.subheader("Animated track")
+    # gdf  = gpd.GeoDataFrame(fish,
+    #        geometry=gpd.points_from_xy(fish.longitude, fish.latitude), crs=4326)
+    # mp   = folium.Map(location=[gdf.geometry.y.mean(), gdf.geometry.x.mean()],
+    #                   zoom_start=7, scrollWheelZoom=False)
+    # feats = [{"type":"Feature",
+    #           "geometry":{"type":"Point","coordinates":[r.longitude,r.latitude]},
+    #           "properties":{"time":r.timestamp.isoformat(),"popup":r.station}}
+    #          for r in gdf.itertuples()]
+    # TimestampedGeoJson({"type":"FeatureCollection","features":feats},
+    #                    period="PT1H", duration="P1D",
+    #                    add_last_point=True).add_to(mp)
+    # st_folium(mp, height=500, width="50", key=f"map-{tag}")
+    # ---------- map ----------
     st.subheader("Animated track")
-    gdf  = gpd.GeoDataFrame(fish,
-           geometry=gpd.points_from_xy(fish.longitude, fish.latitude), crs=4326)
-    mp   = folium.Map(location=[gdf.geometry.y.mean(), gdf.geometry.x.mean()],
-                      zoom_start=7)
-    feats = [{"type":"Feature",
-              "geometry":{"type":"Point","coordinates":[r.longitude,r.latitude]},
-              "properties":{"time":r.timestamp.isoformat(),"popup":r.station}}
-             for r in gdf.itertuples()]
-    TimestampedGeoJson({"type":"FeatureCollection","features":feats},
-                       period="PT1H", duration="P1D",
-                       add_last_point=True).add_to(mp)
-    st_folium(mp, height=500, width="100%", key=f"map-{tag}")
+
+    # Build Folium map (wheel-zoom OFF)
+    gdf = gpd.GeoDataFrame(
+        fish,
+        geometry=gpd.points_from_xy(fish.longitude, fish.latitude), crs=4326
+    )
+    mp = folium.Map(
+        location=[gdf.geometry.y.mean(), gdf.geometry.x.mean()],
+        zoom_start=7,
+        scrollWheelZoom=False          # ← stops accidental zoom while scrolling
+    )
+
+    feats = [
+        {"type": "Feature",
+        "geometry": {"type": "Point",
+                    "coordinates": [r.longitude, r.latitude]},
+        "properties": {"time": r.timestamp.isoformat(),
+                        "popup": r.station}}
+        for r in gdf.itertuples()
+    ]
+    TimestampedGeoJson(
+        {"type": "FeatureCollection", "features": feats},
+        period="PT1H",
+        add_last_point=True
+    ).add_to(mp)
+
+    # Centre the map in the layout
+    # left, mid, right = st.columns([1, 8, 1])     # 8-wide map, 1-wide gutters
+    # with mid:
+    st_folium(
+            mp,
+            height=500,        # postcard height
+            width="100%",      # fills the middle column
+            key=f"map-{tag}"
+    )
 
     # curve
     st.subheader("Detection-efficiency vs distance")
