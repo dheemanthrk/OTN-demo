@@ -299,4 +299,4 @@ st.plotly_chart(hist_fig, use_container_width=True)
 
 # ──  FOOTER  ───────────────────────────────────────────────────────────
 st.markdown("---  \n© 2025 Ocean Tracking Network demo • Code on "
-            "[GitHub](https://github.com/yourname/otn-demo)")
+            "[GitHub](https://github.com/dheemanthrk/otn-demo)")
