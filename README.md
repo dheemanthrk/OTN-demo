@@ -101,4 +101,4 @@ lets you swap helper functions for OTN’s official **`resonATe`** toolkit.
 
 ---
 
-Made by **Dheemanth Kumawat** for the OTN Programmer interview, July 2025.
+Made by **Dheemanth Kumawat**
