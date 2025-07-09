@@ -1,0 +1,10 @@
+# .streamlit/config.toml
+[theme]
+primaryColor = "#008CBA"      # Atlantic blue
+backgroundColor = "#F2FAFF"   # very light aqua
+secondaryBackgroundColor = "#D7EFFA"
+textColor = "#00334d"
+font = "sans serif"
+
+[server]
+headless = true
