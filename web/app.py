@@ -38,7 +38,7 @@ st.markdown(
 st.markdown(
     """
     <style>
-      html { transform: scale(1); transform-origin: 0 0; }
+      html { zoom: 1 !important; }
     </style>
     """,
     unsafe_allow_html=True
